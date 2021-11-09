@@ -14,9 +14,7 @@ sagitta = (diamiter/2)*(diamiter/2) / (4 * focal_length)
 #hogging steps - for each depth of cut we have to run concentric circles to remove the material
 z = 0
 while True:
-    radius = math.sqrt (4*focal_length*z)
-    if radius > diamiter/2:
-        break
+    radius = math.sqrt (4*focal_length* (sagitta - z))
     x = radius
     print(  "z=%.3f" % z, "x=%.3f" % x)
     while True:
@@ -24,6 +22,8 @@ while True:
         if x < 0 :
             break
     z += depth_of_cut
+    if z >= sagitta:
+        break
 
 print(  "sagitta=%.3f" % sagitta)
 
