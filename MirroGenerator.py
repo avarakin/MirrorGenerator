@@ -50,11 +50,12 @@ def finishing():
         print(  "G0 X-%.3f" %x,  " Y0 ", "Z%.3f" %z)
         print(  "G02 X-%.3f" %x,  " Y0 ", "I%.3f" %x, " J0 F%.1f" % feed_rate)
 
+
+#Send g-code header        
 print( "G17 G90 G21 G54")
+
+hogging()
 finishing()
 
-
-
-#TODO:  fine grinding steps - we need to shape the form, no concentric circles needed here, because all the material was removed as part of hogging steps
 
 
