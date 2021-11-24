@@ -8,3 +8,13 @@ It can run in two modes:
 Depending on the tool, feed speed, machine and mirror parameters, step #1 may be skipped.
 
 Please note that this toolpath will produce a parabolic shape.
+
+
+MirrorGenerator.py has input parameter at the top of the file to configure the job parameters. It just spits out the g-code to the console, you need to capture it into file using file redirection:
+
+python MirrorGenerator.py > mirror.gcode
+
+
+This project also has couple of sample g code files:
+mirror.gcode - rough grinding
+mirror_fine.gcode - fine grinding
