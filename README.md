@@ -10,7 +10,7 @@ Depending on the tool, feed speed, machine and mirror parameters, step #1 may be
 Please note that this toolpath will produce a parabolic shape.
 
 
-MirrorGenerator.py has input parameter at the top of the file to configure the job parameters. It just spits out the g-code to the console, you need to capture it into file using file redirection:
+MirrorGenerator.py has input parameters at the top of the file to configure the job parameters. It just spits out the g-code to the console, you need to capture it into file using file redirection:
 
 ```
 python MirrorGenerator.py > mirror.gcode
