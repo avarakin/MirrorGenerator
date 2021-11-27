@@ -1,7 +1,7 @@
 import math
 
-focal_length = 600
-diamiter = 600
+focal_length = 100
+diamiter = 150
 radius_increment = 4
 radius_increment_fine = 10
 sagitta = (diamiter/2)*(diamiter/2) / (4 * focal_length)
@@ -49,14 +49,10 @@ def finishing():
 
 
     while True:
-        base_radius_old = base_radius
-        base_radius -= radius_increment_fine
-        if base_radius <= 0:
-            break
 
         z_old = z
         z = -(sagitta - base_radius*base_radius / (4 * focal_length))
-        z_delta = (z - z_old)*2
+        z_delta = z - z_old
         
 
         x1 = 0 - radius_increment_fine/4
@@ -83,6 +79,11 @@ def finishing():
         z4 = z_old + z_delta
         r4 = base_radius - radius_increment_fine
         print(  "G02 X%.3f" %x4,  " Y%.3f" %y4, " R%.3f" %r4, " Z%.3f" %z4, " F%.1f" % feed_rate)
+
+        base_radius -= radius_increment_fine
+#        if base_radius <= 0 :
+        if base_radius <= radius_increment_fine *2 :
+            break
 
 
 
