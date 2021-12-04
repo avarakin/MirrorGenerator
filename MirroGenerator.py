@@ -1,9 +1,9 @@
 import math
 
-focal_length = 100
+focal_length = 600
 diamiter = 150
 radius_increment = 4
-radius_increment_fine = 10
+radius_increment_fine = 0.5
 sagitta = (diamiter/2)*(diamiter/2) / (4 * focal_length)
 feed_rate = 1000
 
@@ -50,45 +50,45 @@ def finishing():
 
     while True:
 
-        z_old = z
-        z = -(sagitta - base_radius*base_radius / (4 * focal_length))
+        z_old = -(sagitta - base_radius*base_radius / (4 * focal_length))
+        z = -(sagitta - (base_radius - radius_increment_fine )* (base_radius - radius_increment_fine ) / (4 * focal_length))
         z_delta = z - z_old
+
+        xy_delta = radius_increment_fine  # * base_radius / (diamiter/2)
         
 
-        x1 = 0 - radius_increment_fine/4
-        r1 = base_radius - radius_increment_fine/4
+        x1 = 0 - xy_delta/4
+        y1 = base_radius - xy_delta/4
         z1 = z_old + z_delta/4
-        y1 = base_radius - radius_increment_fine/4
+        r1 = base_radius - xy_delta * 0.125
         print(  "G02 X%.3f" %x1,  " Y%.3f" %y1, " R%.3f" %r1, " Z%.3f" %z1, " F%.1f" % feed_rate)
 
 
-        x2 = base_radius - radius_increment_fine/2
+        x2 = base_radius - xy_delta/2
         y2 = 0
         z2 = z_old + z_delta/2
-        r2 = base_radius - radius_increment_fine/2
+        r2 = base_radius - xy_delta * 0.375
         print(  "G02 X%.3f" %x2,  " Y%.3f" %y2, " R%.3f" %r2, " Z%.3f" %z2, " F%.1f" % feed_rate)
 
-        x3 = 0 - radius_increment_fine * 0.75
-        y3 = -(base_radius - radius_increment_fine*0.75)
+        x3 = 0 # - xy_delta * 0.75
+        y3 = -(base_radius - xy_delta*0.75)
         z3 = z_old + z_delta*0.75
-        r3 = base_radius - radius_increment_fine*0.75
+        r3 = base_radius - xy_delta*0.625
         print(  "G02 X%.3f" %x3,  " Y%.3f" %y3, " R%.3f" %r3, " Z%.3f" %z3, " F%.1f" % feed_rate)
 
-        x4 = -(base_radius - radius_increment_fine)
+        x4 = -(base_radius - xy_delta)
         y4 = 0
         z4 = z_old + z_delta
-        r4 = base_radius - radius_increment_fine
+        r4 = base_radius - xy_delta * 0.875
         print(  "G02 X%.3f" %x4,  " Y%.3f" %y4, " R%.3f" %r4, " Z%.3f" %z4, " F%.1f" % feed_rate)
 
         base_radius -= radius_increment_fine
 #        if base_radius <= 0 :
-        if base_radius <= radius_increment_fine *2 :
+        if base_radius <= radius_increment_fine :
             break
 
 
 
 print( "G17 G90 G21 G54")
+hogging()
 finishing()
-
-
-
