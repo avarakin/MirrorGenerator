@@ -1,6 +1,6 @@
 import math
 
-focal_length = 600
+focal_length = 750
 diamiter = 150
 radius_increment = 4
 radius_increment_fine = 0.5
@@ -91,4 +91,4 @@ def finishing():
 
 print( "G17 G90 G21 G54")
 hogging()
-finishing()
+#finishing()

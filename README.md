@@ -1,6 +1,6 @@
 # Telescope Mirror Generator
 
-This program generates g-code for rough grinding of a telescope mirror. 
+This program generates g-code for rough grinding of a telescope mirror using CNC router. 
 It can run in two modes:
 1. Hogging, which takes material in multiple layers, each layer comprised of concentric circles with constant stepover
 2. Fine grinding, which just removes material in one go using downward helix with constant stepover
