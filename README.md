@@ -13,6 +13,7 @@ The tool needs to be low cost and at the same time provide decent longevity.
 The following tool was selected and used for griding of test 6" mirror. The tool was is pretty good shape after grinding this mirror.
 Name of the tool is: "uxcell Diamond Burrs Bits Grinding Drill Carving Rotary Tool for Glass Stone Ceramic 120 Grit 1/4" Shank 10mm Cylinder Ball Nose 5 Pcs", Amazon URL:
 https://tinyurl.com/2p9dzmbr
+
 Hot glue sticks for holding mirror to water bath:
 https://www.amazon.com/gp/product/B01GUHHQOO/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1
 
